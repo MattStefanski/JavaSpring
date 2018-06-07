@@ -1,6 +1,8 @@
 .gradle
 /build/
-!gradle/wrapper/gradle-wrapper.jar
+/gradlew
+gradle/*
+gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
 .apt_generated
@@ -20,8 +22,10 @@
 
 ### NetBeans ###
 /nbproject/private/
-/build/
+build/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
+/gradlew.bat
+/gradle/
