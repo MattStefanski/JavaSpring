@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface TaskRepository extends CrudRepository<Task,Long> {
@@ -12,7 +13,7 @@ public interface TaskRepository extends CrudRepository<Task,Long> {
     @Override
     List<Task> findAll();
 
-    List<Task> findById();
+    Optional<Task> findById();
 
 
 
