@@ -2,7 +2,7 @@ package com.crud.tasks.controller;
 
 import com.crud.tasks.com.crud.task.domain.Task;
 import com.crud.tasks.mapper.TaskMapper;
-import com.crud.tasks.serive.DbService;
+import com.crud.tasks.repository.TaskRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,11 +21,14 @@ public class TaskControllerTestsSuits {
     @Autowired
     TaskController taskController;
 
+    @Autowired
+    TaskRepository taskRepository;
 
     @Test
     public void removeTaskTest() throws TaskNotFoundException {
 
         //Given
+
 
         Task task1 = new Task(1l, "Task1", "Desc1");
         Task task2 = new Task(2l, "Task2", "Desc2");
