@@ -19,7 +19,7 @@ public class TaskControllerTestsSuits {
     TaskMapper taskMapper;
 
     @Autowired
-    TaskController taskController;
+    TasksController taskController;
 
     @Autowired
     TaskRepository taskRepository;
@@ -42,14 +42,14 @@ public class TaskControllerTestsSuits {
 
         Assert.assertEquals((Integer) 2, taskNum);
 
-        taskController.deleteTask(26l);
+        taskController.deleteTask(1l);
 
         taskNum = taskController.getTasks().size();
         //Then
         Assert.assertEquals((Integer) 1, taskNum);
 
         //Clean UP
-        taskController.deleteTask(27l);
+        taskController.deleteTask(2l);
     }
 
 
