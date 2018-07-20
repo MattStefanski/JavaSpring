@@ -19,38 +19,9 @@ public class TaskControllerTestsSuits {
     TaskMapper taskMapper;
 
     @Autowired
-    TaskController taskController;
+    TasksController taskController;
 
     @Autowired
     TaskRepository taskRepository;
-
-    @Test
-    public void removeTaskTest() throws TaskNotFoundException {
-
-        //Given
-
-
-        Task task1 = new Task(1l, "Task1", "Desc1");
-        Task task2 = new Task(2l, "Task2", "Desc2");
-
-        //When
-        taskController.createTask(taskMapper.mapToTaskDto(task1));
-        taskController.createTask(taskMapper.mapToTaskDto(task2));
-
-        Integer taskNum = taskController.getTasks().size();
-
-
-        Assert.assertEquals((Integer) 2, taskNum);
-
-        taskController.deleteTask(26l);
-
-        taskNum = taskController.getTasks().size();
-        //Then
-        Assert.assertEquals((Integer) 1, taskNum);
-
-        //Clean UP
-        taskController.deleteTask(27l);
-    }
-
 
 }
