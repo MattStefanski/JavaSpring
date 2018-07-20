@@ -29,3 +29,5 @@ build/
 /.nb-gradle/
 /gradlew.bat
 /gradle/
+!/gradle/wrapper/gradle-wrapper.properties
+!/gradle/
