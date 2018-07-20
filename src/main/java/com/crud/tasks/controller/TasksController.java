@@ -24,7 +24,7 @@ public class TasksController {
         this.taskMapper = taskMapper;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTasks1")
+    @RequestMapping(method = RequestMethod.GET, value = "getTasks")
     public List<TaskDto> getTasks1() {
         return new ArrayList<>();
     }
