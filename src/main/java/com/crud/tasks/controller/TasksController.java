@@ -56,6 +56,7 @@ public class TasksController {
             produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody TaskDto createTask(TaskDto taskDto) {
         service.saveTask(taskMapper.mapToTask(taskDto));
+        return null;
     }
 
 }
