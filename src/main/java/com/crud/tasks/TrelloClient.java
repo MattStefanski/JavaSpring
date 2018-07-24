@@ -6,9 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.lang.reflect.Array;
+
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +15,7 @@ import java.util.Optional;
 @Component
 public class TrelloClient {
 
-    @Value("{$trello.api.emdpoint.prod}")
+    @Value("{$trello.api.endpoint.prod}")
     private String trelloApiEndpoint;
 
     @Value("{$trello.app.key}")
