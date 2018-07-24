@@ -3,6 +3,7 @@ package com.crud.tasks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -38,10 +39,14 @@ public class TrelloClient {
     }
 
     public List<TrelloBoardDto> getTrelloBoards(){
-
-
-        TrelloBoardDto[] list=restTemplate.getForObject(this.buildUri(),TrelloBoardDto[].class);
-
+        TrelloBoardDto[] list;
+        try {
+                 list = restTemplate.getForObject(this.buildUri(), TrelloBoardDto[].class);
+        } catch (HttpClientErrorException e) {
+                list=null;
+                System.out.println(e.getStatusCode());
+                System.out.println(e.getResponseBodyAsString());
+        }
 
         return Arrays.asList(Optional.ofNullable(list).orElse(new TrelloBoardDto[0]));
 
