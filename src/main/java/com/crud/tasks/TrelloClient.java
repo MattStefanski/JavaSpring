@@ -15,13 +15,13 @@ import java.util.Optional;
 @Component
 public class TrelloClient {
 
-    @Value("{$trello.api.endpoint.prod}")
+    @Value("${trello.api.endpoint.prod}")
     private String trelloApiEndpoint;
 
-    @Value("{$trello.app.key}")
+    @Value("${trello.app.key}")
     private String trelloAppKey;
 
-    @Value("{$trello.app.token}")
+    @Value("${trello.app.token}")
     private String trelloToken;
 
 
@@ -30,7 +30,7 @@ public class TrelloClient {
 
 
     private URI buildUri(){
-        URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/kodillauser/boards")
+        URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/5b578f2cc23c72329b98d5b0/boards")
                 .queryParam("key", trelloAppKey)
                 .queryParam("token", trelloToken)
                 .queryParam("fields", "name,id").build().encode().toUri();
