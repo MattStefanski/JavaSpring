@@ -15,7 +15,6 @@ public class TrelloController {
 
         @Autowired
         private TrelloClient trelloClient;
-
         @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
         public void getTrelloBoards() {
 
