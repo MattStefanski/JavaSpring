@@ -31,18 +31,22 @@ public class TrelloClient {
 
 
     private URI buildUri(){
-        URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/5b578f2cc23c72329b98d5b0/boards")
+        URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/mateuszstefanski5/boards")
                 .queryParam("key", trelloAppKey)
                 .queryParam("token", trelloToken)
                 .queryParam("fields", "name,id")
-                .queryParam("lists", "all").build().encode().toUri();
+                .queryParam("lists","all")
+                .build().encode().toUri();
         return url;
     }
 
     public List<TrelloBoardDto> getTrelloBoards(){
         TrelloBoardDto[] list;
         try {
-                 list = restTemplate.getForObject(this.buildUri(), TrelloBoardDto[].class);
+            System.out.println("start");
+            System.out.println(this.buildUri());
+                list = restTemplate.getForObject(this.buildUri(), TrelloBoardDto[].class);
+
         } catch (HttpClientErrorException e) {
                 list=null;
                 System.out.println(e.getStatusCode());
@@ -64,6 +68,7 @@ public class TrelloClient {
                 .queryParam("idList",trelloCardDto.getListId())
                 .build().encode().toUri();
 
+        System.out.println(url);
         return restTemplate.postForObject(url,null,CreatedTrelloCard.class);
     }
 

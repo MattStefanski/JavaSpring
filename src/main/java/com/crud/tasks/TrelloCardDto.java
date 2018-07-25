@@ -9,8 +9,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 
-@AllArgsConstructor
-@Getter
+
 public class TrelloCardDto {
 
     private  String name;
@@ -18,16 +17,27 @@ public class TrelloCardDto {
     private String pos;
     private String listId;
 
-    @Value("${trello.api.endpoint.prod}")
-    private String trelloApiEndpoint;
 
-    @Value("${trello.app.key}")
-    private String trelloAppKey;
+    public TrelloCardDto(String name, String description, String pos, String listId) {
+        this.name = name;
+        this.description = description;
+        this.pos = pos;
+        this.listId = listId;
+    }
 
-    @Value("${trello.app.token}")
-    private String trelloToken;
+    public String getName() {
+        return name;
+    }
 
+    public String getDescription() {
+        return description;
+    }
 
+    public String getPos() {
+        return pos;
+    }
 
-
+    public String getListId() {
+        return listId;
+    }
 }

@@ -5,6 +5,7 @@ import com.crud.tasks.TrelloBoardDto;
 import com.crud.tasks.TrelloCardDto;
 import com.crud.tasks.TrelloClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,6 +45,7 @@ public class TrelloController {
                         System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
 
             });
+
         }
 
         @RequestMapping(method=RequestMethod.POST,value="createTrelloCard")
