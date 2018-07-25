@@ -20,18 +20,13 @@ public class TrelloController {
 
         @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
         public List<TrelloBoardDto> getTrelloBoards() {
-
-
-
             return trelloClient.getTrelloBoards();
-
-
         }
 
-        @RequestMapping(method=RequestMethod.POST,value="createTrelloCard", consumes = MediaType.APPLICATION_JSON_VALUE,
-                produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE})
-        public CreatedTrelloCard createdTrelloCard(@RequestParam(name="trelloCardDto") TrelloCardDto trelloCardDto){
-            return trelloClient.createNewCard(trelloCardDto);
-        }
+    @RequestMapping(method=RequestMethod.POST,value="createTrelloCard")
+    public CreatedTrelloCard createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
+        return trelloClient.createNewCard(trelloCardDto);
+    }
+
 }
 
