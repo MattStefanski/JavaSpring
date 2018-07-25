@@ -20,7 +20,6 @@ public class TrelloController {
         private TrelloClient trelloClient;
         @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
         public void getTrelloBoards() {
-
             String KODILLA="Kodilla";
 
             List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
