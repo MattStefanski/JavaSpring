@@ -1,0 +1,33 @@
+package com.crud.tasks.controller;
+
+import com.crud.tasks.TrelloBoardDto;
+import com.crud.tasks.TrelloClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+
+
+@RestController
+@RequestMapping("/v1/trello")
+public class TrelloController {
+
+        @Autowired
+        private TrelloClient trelloClient;
+        @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+                produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+        public void getTrelloBoards() {
+
+
+            String KODILLA="Kodilla";
+            List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+
+            trelloBoards.stream()
+                    .filter(t->t.getId()!=null)
+                    .filter(t->t.getName().contains(KODILLA))
+                    .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
+        }
+}
+
