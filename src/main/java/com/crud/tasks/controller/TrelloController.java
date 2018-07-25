@@ -16,18 +16,16 @@ public class TrelloController {
 
         @Autowired
         private TrelloClient trelloClient;
-        @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
-                produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-        public void getTrelloBoards() {
 
 
-            String KODILLA="Kodilla";
-            List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+    @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
+    public List<TrelloBoardDto> getTrelloBoards() {
 
-            trelloBoards.stream()
-                    .filter(t->t.getId()!=null)
-                    .filter(t->t.getName().contains(KODILLA))
-                    .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
-        }
+
+
+        return trelloClient.getTrelloBoards();
+
+
+    }
 }
 
