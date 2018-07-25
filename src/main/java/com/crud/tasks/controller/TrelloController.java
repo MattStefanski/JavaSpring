@@ -13,15 +13,22 @@ import java.util.List;
 @RequestMapping("/v1/trello")
 public class TrelloController {
 
+
+
+
         @Autowired
         private TrelloClient trelloClient;
         @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
         public void getTrelloBoards() {
 
+            String KODILLA="Kodilla";
+
             List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 
-            trelloBoards.stream().filter(t->t.getId()!=null).filter(t->t.getName().contains("Kodilla")).forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
-
+            trelloBoards.stream()
+                    .filter(t->t.getId()!=null)
+                    .filter(t->t.getName().contains(KODILLA))
+                    .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
         }
 }
 
