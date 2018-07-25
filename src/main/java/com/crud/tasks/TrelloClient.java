@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +29,7 @@ public class TrelloClient {
     @Autowired
     private RestTemplate restTemplate;
 
+    private static final Logger LOGGER=LoggerFactory.getLogger(TrelloClient.class);
 
     private URI buildUri(){
         URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/mateuszstefanski5/boards")
@@ -43,14 +44,12 @@ public class TrelloClient {
     public List<TrelloBoardDto> getTrelloBoards(){
         TrelloBoardDto[] list;
         try {
-
-            System.out.println(this.buildUri());
                 list = restTemplate.getForObject(this.buildUri(), TrelloBoardDto[].class);
 
-        } catch (HttpClientErrorException e) {
+        } catch (Exception e) {
                 list=null;
-                System.out.println(e.getStatusCode());
-                System.out.println(e.getResponseBodyAsString());
+                LOGGER.error(e.getMessage());
+
         }
 
         return Arrays.asList(Optional.ofNullable(list).orElse(new TrelloBoardDto[0]));
