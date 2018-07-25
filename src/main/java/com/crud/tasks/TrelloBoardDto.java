@@ -7,8 +7,9 @@ import lombok.Getter;
 @Getter
 public class TrelloBoardDto {
 
+    public TrelloBoardDto() {
+    }
+
     private String name;
     private String id;
-
-
 }
