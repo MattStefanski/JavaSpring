@@ -1,5 +1,7 @@
 package com.crud.tasks;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,35 +11,26 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 
-
+@AllArgsConstructor
+@Getter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TrelloCardDto {
 
+
+    public TrelloCardDto() {
+    }
+
+    @JsonProperty("name")
     private  String name;
+
+    @JsonProperty("description")
     private String description;
+
+    @JsonProperty("pos")
     private String pos;
+
+    @JsonProperty("listId")
     private String listId;
 
 
-    public TrelloCardDto(String name, String description, String pos, String listId) {
-        this.name = name;
-        this.description = description;
-        this.pos = pos;
-        this.listId = listId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getPos() {
-        return pos;
-    }
-
-    public String getListId() {
-        return listId;
-    }
 }

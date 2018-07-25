@@ -43,7 +43,7 @@ public class TrelloClient {
     public List<TrelloBoardDto> getTrelloBoards(){
         TrelloBoardDto[] list;
         try {
-            System.out.println("start");
+
             System.out.println(this.buildUri());
                 list = restTemplate.getForObject(this.buildUri(), TrelloBoardDto[].class);
 
@@ -67,6 +67,7 @@ public class TrelloClient {
                 .queryParam("pos",trelloCardDto.getPos())
                 .queryParam("idList",trelloCardDto.getListId())
                 .build().encode().toUri();
+        System.out.println(url);
 
         System.out.println(url);
         return restTemplate.postForObject(url,null,CreatedTrelloCard.class);

@@ -12,13 +12,17 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrelloBoardDto {
 
+
+    public TrelloBoardDto() {
+    }
+
     @JsonProperty("id")
     private String id;
 
     @JsonProperty("name")
     private String name;
 
-   @JsonProperty("lists")
+    @JsonProperty("lists")
     private List<TrelloListDto> lists;
 
 
