@@ -1,17 +1,13 @@
 package com.crud.tasks.controller;
 
 
-import com.crud.tasks.com.crud.task.domain.Task;
 import com.crud.tasks.com.crud.task.domain.TaskDto;
 import com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.serive.DbService;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 
 @CrossOrigin(origins = "*")
@@ -33,7 +29,7 @@ public class TasksController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getTask")
-    public Task getTask(@RequestParam Long taskId) throws TaskNotFoundException {
+    public TaskDto getTask(@RequestParam Long taskId) throws TaskNotFoundException {
         return taskMapper.mapToTaskDto(service.getTask(taskId).orElseThrow(TaskNotFoundException::new));
     }
 

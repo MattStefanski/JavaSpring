@@ -5,7 +5,9 @@ import com.crud.tasks.TrelloBoardDto;
 import com.crud.tasks.TrelloCardDto;
 import com.crud.tasks.TrelloClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,9 +25,11 @@ public class TrelloController {
         return trelloClient.getTrelloBoards();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
-    public CreatedTrelloCard createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
-        return trelloClient.createNewCard(trelloCardDto);
+
+
+        @RequestMapping(method=RequestMethod.POST,value="createTrelloCard")
+        public CreatedTrelloCard createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
+            return trelloClient.createNewCard(trelloCardDto);
     }
 
 }

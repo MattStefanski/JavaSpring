@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-public class TaskDto extends Task {
+public class TaskDto {
 
     private Long id;
 
