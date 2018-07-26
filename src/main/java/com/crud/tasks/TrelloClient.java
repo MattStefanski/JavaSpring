@@ -33,13 +33,13 @@ public class TrelloClient {
 
 
     public List<TrelloBoardDto> getTrelloBoards() {
-        TrelloBoardDto[] list;
         try {
-            list = restTemplate.getForObject(urlFactory.getTrelloBoardsUrl(), TrelloBoardDto[].class);
 
+            TrelloBoardDto[] boardsResponse = restTemplate.getForObject(urlFactory.getTrelloBoardsUrl(), TrelloBoardDto[].class);
+            return Arrays.asList(Optional.ofNullable(boardsResponse).orElse(new TrelloBoardDto[0]));
         } catch (RestClientException e) {
-            list = null;
             LOGGER.error(e.getMessage());
+            return new ArrayList<>();
 
         }
 
