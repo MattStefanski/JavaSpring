@@ -7,16 +7,17 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class TasksApplication  extends SpringBootServletInitializer {
+public class TasksApplication extends SpringBootServletInitializer {
 
-	public static void main(String[] args){
+    public static void main(String[] args) {
 
-		SpringApplication.run(TasksApplication.class, args);
-	}
-	//Commented for Heroku Deployment
-	@Override
-	protected SpringApplicationBuilder configure (SpringApplicationBuilder applcation){
-		return applcation.sources(TasksApplication.class);
-	}
+        SpringApplication.run(TasksApplication.class, args);
+    }
+
+    //Commented for Heroku Deployment
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder applcation) {
+        return applcation.sources(TasksApplication.class);
+    }
 
 }
