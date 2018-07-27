@@ -34,20 +34,12 @@ public class TrelloClient {
 
 
     public List<TrelloBoardDto> getTrelloBoards() {
-<<<<<<< HEAD
+
         try {
 
             TrelloBoardDto[] boardsResponse = restTemplate.getForObject(urlFactory.getTrelloBoardsUrl(), TrelloBoardDto[].class);
             return Arrays.asList(Optional.ofNullable(boardsResponse).orElse(new TrelloBoardDto[0]));
         } catch (RestClientException e) {
-=======
-        TrelloBoardDto[] boardsResponse;
-        try {
-            boardsResponse = restTemplate.getForObject(urlFactory.getTrelloBoardsUrl(), TrelloBoardDto[].class);
-            return Arrays.asList(Optional.ofNullable(boardsResponse).orElse(new TrelloBoardDto[0]));
-
-        }catch (RestClientException e) {
->>>>>>> 6fed39d3aa7c908d5a9ec1dadede3978117fe6e6
             LOGGER.error(e.getMessage());
             return new ArrayList<>();
 

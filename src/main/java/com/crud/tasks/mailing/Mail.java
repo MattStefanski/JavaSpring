@@ -1,11 +1,10 @@
 package com.crud.tasks.domain;
 
 
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
 public class Mail {
 
     private String mailTo;
@@ -13,6 +12,12 @@ public class Mail {
     private String message;
     private String toCC=null;
 
+
+    public Mail(String mailTo, String subject, String message) {
+        this.mailTo = mailTo;
+        this.subject = subject;
+        this.message = message;
+    }
 
     public void setToCC(String toCC) {
         this.toCC = toCC;

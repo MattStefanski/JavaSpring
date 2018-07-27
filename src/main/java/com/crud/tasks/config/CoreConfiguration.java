@@ -1,4 +1,4 @@
-package com.crud.tasks;
+package com.crud.tasks.config;
 
 
 import com.google.common.base.Predicates;
@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.validation.MessageCodesResolver;
 import org.springframework.validation.Validator;
 import org.springframework.web.client.RestTemplate;
@@ -22,6 +23,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.List;
 
 @EnableSwagger2
+@EnableScheduling
 @Configuration
 public class CoreConfiguration implements WebMvcConfigurer {
 
