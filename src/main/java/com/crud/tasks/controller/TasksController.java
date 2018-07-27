@@ -3,7 +3,7 @@ package com.crud.tasks.controller;
 
 import com.crud.tasks.com.crud.task.domain.TaskDto;
 import com.crud.tasks.mapper.TaskMapper;
-import com.crud.tasks.serive.DbService;
+import com.crud.tasks.service.DbService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
