@@ -1,5 +1,6 @@
 package com.crud.tasks;
 
+import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,16 +34,17 @@ public class TrelloClient {
 
 
     public List<TrelloBoardDto> getTrelloBoards() {
+
         try {
 
             TrelloBoardDto[] boardsResponse = restTemplate.getForObject(urlFactory.getTrelloBoardsUrl(), TrelloBoardDto[].class);
             return Arrays.asList(Optional.ofNullable(boardsResponse).orElse(new TrelloBoardDto[0]));
         } catch (RestClientException e) {
+
             LOGGER.error(e.getMessage());
             return new ArrayList<>();
 
         }
-
     }
 
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto) {
