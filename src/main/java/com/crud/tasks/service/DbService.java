@@ -1,4 +1,4 @@
-package com.crud.tasks.serive;
+package com.crud.tasks.service;
 
 import com.crud.tasks.com.crud.task.domain.Task;
 import com.crud.tasks.repository.TaskRepository;
